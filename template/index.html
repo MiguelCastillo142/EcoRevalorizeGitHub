@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}Inicio{% endblock %}</title>
     {% block sign %}
-    <a href="/" style="margin-right: 10%;" class="sign singin-btn btn-primary btn">Sign in</a>
+    <a href="{% url 'login' %}" style="margin-right: 10%;" class="sign singin-btn btn-primary btn">Sign in</a>
     {% endblock %}
 
 </head>
