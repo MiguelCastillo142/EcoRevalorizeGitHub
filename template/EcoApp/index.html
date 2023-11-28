@@ -1,0 +1,32 @@
+{%extends "bases/base.html" %}
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Inicio{% endblock %}</title>
+    {% block sign %}
+    <a href="/" class="sign singin-btn btn">Sign in</a>
+    {% endblock %}
+
+</head>
+<body >
+
+    {% block contenido %}
+    <div style="position: relative; text-align: center;">
+    </div>
+    <div>
+        <h2 class="des text-center py-5" style="margin-top:50px;">Todos tus productos a precios unicos</h2>
+        <p class="text-center " style="margin-top:20px; margin-left:20px; margin-right:20px; margin-bottom: 20px;">En nuestra veterinaria, nos dedicamos a ofrecer los mejores productos para el 
+        cuidado de tus animales salvajes. Ya sea que tengas mascotas exóticas o 
+        estés involucrado en la conservación de la vida silvestre, nuestro compromiso es 
+        proporcionarte productos de alta calidad a precios excepcionales.
+        Explora nuestra tienda y descubre una amplia gama de artículos que
+        satisfarán las necesidades de tus amigos con escamas y colmillos </p>
+    </div>
+    </div>
+    {% endblock %}
+</body>
+</html>
