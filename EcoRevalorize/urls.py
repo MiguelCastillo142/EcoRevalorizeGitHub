@@ -11,6 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cuentas/',include("django.contrib.auth.urls"),name='login'),
     path('signUp/',signUp,name="signUp"),
+    path('interfaz/',postlogin,name="board"),
     
     path('addproducto/',registrarProducto,name="insertar_producto"),
     path('productos/',productoData,name="ver_producto"),

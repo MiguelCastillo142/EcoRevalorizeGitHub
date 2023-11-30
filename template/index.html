@@ -8,10 +8,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}Inicio{% endblock %}</title>
     {% block sign %}
-    <a href="{% url 'login' %}" style="margin-right: 10%;" class="sign singin-btn btn-primary btn">Sign in</a>
+    
     {% endblock %}
-
+    {% block sesion %}
+    {% if user.is_authenticated %}
+        <a class="sign singin-btn btn-primary btn" href="{% url 'logout' %}" >Salir</a>
+    {% else %}
+     <a href="{% url 'login' %}" style="margin-right: 20%;" class="sign singin-btn btn-primary btn">Signin</a>
+    {% endif %}
+    {% endblock %}
 </head>
+{% block board %}
+{% if user.is_authenticated %}
+    <li class="nav-item">
+        <a class="sign singin-btn btn-primary btn" aria-current="page" href="/interfaz">Dashboard</a>
+    </li>
+{% endif %}
+{% endblock %}
 <body >
 
     {% block contenido %}

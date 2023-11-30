@@ -126,6 +126,7 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,"static")]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-LOGIN_REDIRECT_URL="/"
+LOGIN_REDIRECT_URL="/interfaz"
 LOGOUT_REDIRECT_URL="/"
+STATICFILES_DIRS = [BASE_DIR/"static"]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
