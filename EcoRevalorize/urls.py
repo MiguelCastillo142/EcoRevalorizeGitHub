@@ -11,7 +11,18 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cuentas/',include("django.contrib.auth.urls"),name='login'),
     path('signUp/',signUp,name="signUp"),
+    
+    path('addproducto/',registrarProducto,name="insertar_producto"),
+    path('productos/',productoData,name="ver_producto"),
 
+    path('addcategoria/',registrarCategoria,name="agregar_categoria"),
+    path('categorias/',categoriaData,name="ver_categorias"),
 
+    path('editarcategoria/<int:id>', editarCategoria, name="editarcategoria"),
+    path('eliminarcategoria/<int:id>', eliminarCategoria, name="eliminarcategoria"),
+
+    path('editarproducto/<int:id>', editarProducto, name="editarproducto"),
+    path('eliminarproducto/<int:id>', eliminarProducto, name="eliminarproducto"),
+    
     path('',TemplateView.as_view(template_name="index.html"),name='index'),
 ]
