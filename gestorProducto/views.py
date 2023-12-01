@@ -27,43 +27,54 @@ def registrarProducto(request):
 @login_required(login_url='login')  
 def registrarCategoria(request):
     user = request.user
-    form = CategoriaRegistrationForm()
-    if request.method=='POST':
-        form = CategoriaRegistrationForm(request.POST)
-        if form.is_valid():
-            print("El formulario es valido")
-            form.save()
-            return HttpResponseRedirect(reverse("ver_categorias"))
-    data = {'form' : form }
-    return render (request,'forms/form_categoria.html',data)
+    if user.is_staff:
+        form = CategoriaRegistrationForm()
+        if request.method=='POST':
+            form = CategoriaRegistrationForm(request.POST)
+            if form.is_valid():
+                print("El formulario es valido")
+                form.save()
+                return HttpResponseRedirect(reverse("ver_categorias"))
+        data = {'form' : form }
+        return render (request,'forms/form_categoria.html',data)
+    else:
+        return render (request, 'index.html')
 
 
 @login_required(login_url='login')  
 def categoriaData(request):
     categoria = Categoria.objects.all()
-    data = {'categoria': categoria}
-    return render(request,'tablas/tabla_categoria.html',data)
+    if user.is_staff:
+        data = {'categoria': categoria}
+        return render(request,'tablas/tabla_categoria.html',data)
+    else:
+        return render (request, 'index.html')
 
 @login_required(login_url='login')  
 def editarCategoria(request,id ):
     user = request.user
-    categoria=Categoria.objects.get(id = id )
-    form=CategoriaRegistrationForm(instance=categoria)
-    if (request.method=='POST'):
-        form=CategoriaRegistrationForm(request.POST,instance=categoria)
-        if form.is_valid():
-                form.save()
-        return  HttpResponseRedirect(reverse("ver_categorias"))
-    data = {'form' : form } 
-    return render (request, 'forms/form_categoria.html',data)
-
+    if user.is_staff:
+        categoria=Categoria.objects.get(id = id )
+        form=CategoriaRegistrationForm(instance=categoria)
+        if (request.method=='POST'):
+            form=CategoriaRegistrationForm(request.POST,instance=categoria)
+            if form.is_valid():
+                    form.save()
+            return  HttpResponseRedirect(reverse("ver_categorias"))
+        data = {'form' : form } 
+        return render (request, 'forms/form_categoria.html',data)
+    else:
+        return render (request, 'index.html')
 
 
 @login_required(login_url='login')     
 def eliminarCategoria(request,id):
     categoria=Categoria.objects.get(id = id )
-    categoria.delete()
-    return  HttpResponseRedirect(reverse("ver_categorias"))
+    if user.is_staff:
+        categoria.delete()
+        return  HttpResponseRedirect(reverse("ver_categorias"))
+    else:
+        return render (request, 'index.html')
 
 
 

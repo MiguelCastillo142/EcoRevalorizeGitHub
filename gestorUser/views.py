@@ -14,7 +14,7 @@ def signUp(request):
         form=SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.sucess(request,"Te registraste correctamente")
+            print(request,"Te registraste correctamente")
             return redirect('/')
     return render(request,'forms/signUp.html',{'form':form})
 @login_required(login_url='login')  
