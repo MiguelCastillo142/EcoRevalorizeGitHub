@@ -27,7 +27,7 @@ def registrarProducto(request):
 @login_required(login_url='login')  
 def registrarCategoria(request):
     user = request.user
-    if user.is_staff:
+    if request.user.is_staff:
         form = CategoriaRegistrationForm()
         if request.method=='POST':
             form = CategoriaRegistrationForm(request.POST)
@@ -41,19 +41,19 @@ def registrarCategoria(request):
         return render (request, 'index.html')
 
 
-@login_required(login_url='login')  
+@login_required(login_url='login')
 def categoriaData(request):
     categoria = Categoria.objects.all()
-    if user.is_staff:
+    if request.user.is_staff:  # Corrige el acceso al usuario actual
         data = {'categoria': categoria}
-        return render(request,'tablas/tabla_categoria.html',data)
+        return render(request, 'tablas/tabla_categoria.html', data)
     else:
-        return render (request, 'index.html')
+        return render(request, 'index.html')
 
 @login_required(login_url='login')  
 def editarCategoria(request,id ):
     user = request.user
-    if user.is_staff:
+    if request.user.is_staff:
         categoria=Categoria.objects.get(id = id )
         form=CategoriaRegistrationForm(instance=categoria)
         if (request.method=='POST'):
@@ -70,7 +70,7 @@ def editarCategoria(request,id ):
 @login_required(login_url='login')     
 def eliminarCategoria(request,id):
     categoria=Categoria.objects.get(id = id )
-    if user.is_staff:
+    if request.user.is_staff:
         categoria.delete()
         return  HttpResponseRedirect(reverse("ver_categorias"))
     else:
