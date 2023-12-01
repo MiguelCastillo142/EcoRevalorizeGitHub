@@ -1,17 +1,13 @@
 {% extends "bases/interfaz.html" %}
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-
 {% block contenido %}
 <head>
     <title>Tabla Categoria</title>
     <!-- Required meta tags -->
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
     <link href="{% static 'css/sb-admin-2.min.css" rel="stylesheet'%}">
     <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css'%}" rel="stylesheet">
 </head>
@@ -31,11 +27,8 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripcion</th>
-                        <th scope="col">Precio</th>
                         <th scope="col">Categoria</th>
                         <th scope="col">usuario</th>
- 
- 
                       </tr>
                     </thead>
                     <tbody>
@@ -44,16 +37,13 @@
                               <td scope="row">{{ producto.id }}</td>    
                               <td>{{ producto.nombre }}</td>
                               <td>{{ producto.descripcion }}</td>
-                              <td>{{ producto.precio }}</td>
                               <td>{{ producto.categoria }}</td>
                               <td>{{ producto.usuario.username }}</td>
                               <td>
                                 <a href="/editarproducto/{{ producto.id }}" class="btn btn-outline-primary mx-auto">Editar</a>
                                 <a href="/eliminarproducto/{{ producto.id }}" class="btn btn-outline-danger mx-auto">Eliminar</a>
                               </td>
-
                           </tr>
-
                       {% endfor %}
                     </tbody>
                 </table>
