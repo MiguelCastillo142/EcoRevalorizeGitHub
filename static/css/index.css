@@ -1,0 +1,57 @@
+.background-container {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 249%;
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.content-container {
+    position: relative;
+    z-index: 1; 
+}
+
+.des {
+    color: blue;
+}
+
+.h4 {
+    color: green;
+}
+/* Añade estas reglas al final de tu CSS */
+
+/* Para la sección de la Misión */
+.mision-section {
+    background-color: #87CEEB;
+    padding: 60px;
+}
+
+.mision-section img {
+    margin-left: 190px;
+}
+
+.vision-section img {
+    position: absolute;
+    right: 800px;
+    top: 1010px;
+    bottom: -550px;
+}
+
+.sobre-section {
+    position: relative; 
+}
+
+.sobre-section img {
+    position: absolute;
+    top: 700px;
+}
+
+

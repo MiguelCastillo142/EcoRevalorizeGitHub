@@ -1,5 +1,6 @@
-{%extends "bases/base.html" %}
-{%load static%}
+{% extends "bases/base.html" %}
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +15,7 @@
     {% if user.is_authenticated %}
         <a class="sign singin-btn btn-primary btn" href="{% url 'logout' %}" >Salir</a>
     {% else %}
-     <a href="{% url 'login' %}" style="margin-right: 20%;" class="sign singin-btn btn-primary btn">Signin</a>
+     <a href="{% url 'login' %}" class="sign singin-btn btn-primary btn">Iniciar Sesión</a>
     {% endif %}
     {% endblock %}
 </head>
@@ -25,20 +26,79 @@
     </li>
 {% endif %}
 {% endblock %}
-<body >
-
     {% block contenido %}
-    <div style="position: relative; text-align: center;">
+    <link href="{% static 'css/index.css'%}" rel="stylesheet">
+
+    
+    {# Indice y titulo #}
+
+    <div class="background-container" style="overflow: visible;">
+        <img src="{% static 'img/img2.jpg' %}" alt="leon" class="background-image" style="border-radius: 10px; ">
+        <div class="content-container">
+            <h2 class="des text-center py-5" style="margin-top:0px;">Prefiere productos que se reciclen</h2>
+            <p class="text-center" style="margin-top:20px; margin-left:20px; margin-right:20px;">En nuestra empresa EcoRevalorize, Nos interesa poder aportar al medioambiente un respiro de los recursos que se usan en la sociedad actual, y que se desechan sin dar otro uso, por ello nos encargamos de poder aportar y organizarse a obtener productos que se pueden reciclar en empresas </p>
+        </div>
     </div>
-    <div>
-        <h2 class="des text-center py-5" style="margin-top:50px;">Todos tus productos a precios unicos</h2>
-        <p class="text-center " style="margin-top:20px; margin-left:20px; margin-right:20px; margin-bottom: 20px;">En nuestra veterinaria, nos dedicamos a ofrecer los mejores productos para el 
-        cuidado de tus animales salvajes. Ya sea que tengas mascotas exóticas o 
-        estés involucrado en la conservación de la vida silvestre, nuestro compromiso es 
-        proporcionarte productos de alta calidad a precios excepcionales.
-        Explora nuestra tienda y descubre una amplia gama de artículos que
-        satisfarán las necesidades de tus amigos con escamas y colmillos </p>
+
+
+        {# Vision y mision #}
+        <div class="container mision-section" style="margin-top: 370px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>Nuestra Misión</h4>
+                    <p class="text-left">En EcoRevalorize, nos dedicamos a hayar un cambio positivo en el paradigma del consumo al proporcionar una plataforma innovadora que conecta a empresas comprometidas con la sostenibilidad que ofrecen productos reutilizables con consumidores conscientes.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'img/mision.jpg' %}" alt="mision" class="img-fluid" width="240px">
+                </div>
+            </div>
+        </div>
+        
+        <div class="container vision-section" style="padding-top:60px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{% static 'img/vision.jpg' %}" alt="vision" class="img-fluid" width="260px" style="margin-left: 890px;">
+                </div>
+                <div class="col-md-6">
+                    <h4 class="text-right">Nuestra Visión</h4>
+                    <p class="text-right">Nuestra visión se haya en un futuro donde las empresas y los consumidores colaboren de manera armoniosa para preservar nuestro planeta, reducir la generación de residuos y avanzar hacia un estilo de vida más consciente y sostenible.</p>
+                </div>
+            </div>
+        </div>
+        
+
+        
+    
+        {# Sobre el reciclaje #}
+
+        <div class="container" style="padding-top:140px; sobre-section">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="text-center">Sobre el reciclaje en Chile</h5>
+                    <p class="text-left" style="padding-top:20px;">Cifras del Ministerio del Medio Ambiente señalan que en Chile se generan casi 17 millones de toneladas de residuos sólidos al año. Es decir, cada chileno genera un aproximado de un kilo de basura al día. De ese total, 6,5 millones son residuos domiciliarios y, desgraciadamente sólo el 10% se recicla.</p>
+                    <p class="text-left">Según el Informe del Estado del Medio Ambiente 2020, en Chile el 2018 se generó un total de 19,6 millones de toneladas de residuos sólidos anuales, de los cuales, el 55% es de origen industrial y el 42% domiciliarios (municipales). El destino de estos residuos se distribuye de dos formas: 22% se valoriza o recicla y el 78% se va a eliminación, de este modo los basurales, rellenos sanitarios, microbasurales u otros espacios destinados a la disposición final, no hacen más que crecer.</p>
+                    <p class="text-left">En medio de la gran cantidad de basura que abunda en la vida cotidiana y su bajo nivel de reciclaje o reutilización, hay una serie de problemas, condiciones y factores que demuestran una exigua preocupación social acerca de un tema tan relevante que impacta directamente en el medio ambiente, como es el manejo de residuos.</p>
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'img/sobre.webp' %}" alt="sobre" class="img-fluid" width="550px" style="position: absolute; left:660px; height: 87%;" >
+                </div>
+            </div>
+        </div>
+
+
+
+        {# Iniciativa del ecorevalize #}
+
+        <div class="container" style="padding-top:170px; margin-bottom: 500px; iniciativa-section">
+            <h5 class="text-center">Iniciativa de EcoRevalorize</h5>
+            <li class="text-right" style="padding-top:20px;">En EcoRevalorize tenemos como objetivo disminuir al mínimo la basura que se genera, a través de la reutilización. Esto contribuiría en grandes rasgos al uso de productos que se usan solo una vez. Nos evolucionamos donde la sociedad avanza con la tecnología y por ello nos acercamos más a través de la plataforma web que estás usando ahora mismo.</li>
+            <li class="text-right">Buscamos fomentar la consciencia respecto a lo que le sucede al planeta, que sea consciente del impacto en el medio ambiente de nuestras acciones.</li>
+            <img src="{% static 'img/Iniciativa.jpg' %}" alt="sobre" class="img-fluid" width="550px" style="position: absolute; left:350px; top: 2200px;">
+        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>  
     </div>
     {% endblock %}
 </body>

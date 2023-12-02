@@ -7,10 +7,12 @@ class Usuario(models.Model):
     usuario =models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self):
         return self.usuario.username
+    
 @receiver(post_save, sender= User)
 def crear_usuario(sender, instance, created, **kwargs):
     if created:
         Usuario.objects.create(usuario=instance)
+        
 @receiver(post_save, sender = User)
 def guardar_usuario(sender, instance, created, **kwargs):
     instance.usuario.save()
