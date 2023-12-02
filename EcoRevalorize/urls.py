@@ -29,5 +29,6 @@ urlpatterns = [
     path('eliminarproducto/<int:id>', eliminarProducto, name="eliminarproducto"),
     
     path('',TemplateView.as_view(template_name="index.html"),name='index'),
-    path('listaproductos',TemplateView.as_view(template_name="vistaproductos.html"),name='productos'),
+    path('lista/',listaproducto,name="productos"),
+    
 ]

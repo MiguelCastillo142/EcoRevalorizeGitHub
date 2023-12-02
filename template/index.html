@@ -10,6 +10,7 @@
     {% block sign %}
     
     {% endblock %}
+
     {% block sesion %}
     {% if user.is_authenticated %}
         <a class="sign singin-btn btn-primary btn" href="{% url 'logout' %}" >Salir</a>
@@ -25,6 +26,10 @@
     </li>
 {% endif %}
 {% endblock %}
+{% block lista %}
+    <a class="nav-link sign singin-btn btn-primary btn" href="lista/">Productos</a>
+{% endblock %}
+
 <body >
 
     {% block contenido %}

@@ -3,6 +3,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from .models import Usuario
+from gestorProducto.models import *
 from .forms import SignUpForm
 from django.contrib.auth.models import User
 
@@ -46,3 +47,9 @@ def signUp(request):
 def postlogin(request):
     user = request.user
     return render(request,'bases/interfaz.html')
+
+
+def listaproducto(request):
+    producto = Producto.objects.all()
+    data = {'producto': producto}
+    return render(request, 'vistaproductos.html', data)
