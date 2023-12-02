@@ -23,6 +23,7 @@
                 <h4>{{ producto.nombre }}</h4>
                 <p><strong>Descripción:</strong> {{ producto.descripcion }}  <strong>Contacto:  </strong> {{ producto.contacto }}</p>
                 <p><strong>Categoría:</strong> {{ producto.categoria }}  <strong>Empresa:  </strong> {{ producto.usuario.username }}</p>
+                <p><strong>Ubicacion:  </strong> {{ producto.ubicacion }} <strong>Correo:  </strong> {{ producto.usuario.email }}</p>
             </div>
             {% endfor %}
         </div>

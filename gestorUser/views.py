@@ -43,7 +43,7 @@ def signUp(request):
         if form.is_valid():
             form.save()
             print(request,"Te registraste correctamente")
-            return redirect('/')
+            return redirect('/cuentas/login')
     return render(request,'forms/signUp.html',{'form':form})
     
 @login_required(login_url='login')  
