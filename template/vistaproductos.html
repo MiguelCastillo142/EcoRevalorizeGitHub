@@ -1,1 +1,40 @@
-{%extends "base.html"%}
+{% extends "index.html" %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% block btn %}
+{% endblock %}
+{% block contenido %}
+
+<head>
+    <title>Productos</title>
+    <link href="{% static 'estilos.css' %}" rel="stylesheet">
+</head>
+{% block lista %}
+{% endblock %}
+<body>
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <h2 style="margin-bottom: 5%; margin-top: 5%;" class="text-center titulo">Productos</h2>
+        {% if producto %}
+        <div class="productos-container">
+            {% for producto in producto %}
+            <div style="margin-bottom: 5%;" class="producto">
+                <h4>{{ producto.nombre }}</h4>
+                <p><strong>Descripción:</strong> {{ producto.descripcion }}  <strong>Contacto:  </strong> {{ producto.contacto }}</p>
+                <p><strong>Categoría:</strong> {{ producto.categoria }}  <strong>Empresa:  </strong> {{ producto.usuario.username }}</p>
+                <p><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p class="mensaje">No hay productos disponibles.</p>
+        {% endif %}
+    </div>
+
+</body>
+{% endblock %}
+</html>
+
+
+</html>
