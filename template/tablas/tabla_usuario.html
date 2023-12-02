@@ -40,9 +40,6 @@
                           <tr class="ID">
                               <td scope="row">{{usuario.id }}</td>    
                               <td>{{usuario.rut}}</td>
-                              <td>
-                                <a href="/editarusuario/{{usuario.id}}" class="btn btn-outline-primary mx-auto">Editar</a>
-                              </td>
                           </tr>
                       {% endfor %}
                   </tbody>
@@ -50,12 +47,6 @@
             </div>
         </div>
     </div>
-    <div class="text-center">
-      <a class="btn btn-outline-primary mx-auto" href="{% url 'agregar_categoria' %}">Agregar</a>
-    </div>
-    {% else %}
-    <div class="alert alert-info">No hay usuarios</div>
-    <a class="btn btn-outline-primary mx-auto" href="{% url 'agregar_categoria' %}">Agregar</a>
     {% endif %}
 </body>
 {% endblock %}
