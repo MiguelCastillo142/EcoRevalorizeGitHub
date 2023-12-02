@@ -9,7 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 249%;
+    height: 255%;
     object-fit: cover; 
     z-index: -1; 
 }
@@ -26,17 +26,23 @@
 .h4 {
     color: green;
 }
-/* Añade estas reglas al final de tu CSS */
 
-/* Para la sección de la Misión */
 .mision-section {
-    background-color: #87CEEB;
+    background-color: #80cfee;
     padding: 60px;
+    margin-top: 0px;
 }
 
 .mision-section img {
-    margin-left: 190px;
+    width: 70%;
+    height: auto;
+    padding-left: 140px;
 }
+
+.sobre-section {
+    margin-top: 20px;
+}
+
 
 .vision-section img {
     position: absolute;
@@ -45,13 +51,14 @@
     bottom: -550px;
 }
 
-.sobre-section {
-    position: relative; 
-}
-
-.sobre-section img {
-    position: absolute;
-    top: 700px;
+.vision-section {
+    background-color: #80cfee;
+    padding: 60px;
+    padding-bottom: 20px;
 }
 
 
+.iniciativa-section {
+    margin-top: 20px;
+    margin-bottom: 500px;
+}

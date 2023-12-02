@@ -16,6 +16,9 @@ urlpatterns = [
     path('addproducto/',registrarProducto,name="insertar_producto"),
     path('productos/',productoData,name="ver_producto"),
 
+    path('editarusuario/<int:id>', editarUsuario, name="editarusuario"),
+    path('usuariodata/', usuariodata, name="usuariodata"),
+
     path('addcategoria/',registrarCategoria,name="agregar_categoria"),
     path('categorias/',categoriaData,name="ver_categorias"),
 
@@ -26,4 +29,5 @@ urlpatterns = [
     path('eliminarproducto/<int:id>', eliminarProducto, name="eliminarproducto"),
     
     path('',TemplateView.as_view(template_name="index.html"),name='index'),
+    path('listaproductos',TemplateView.as_view(template_name="vistaproductos.html"),name='productos'),
 ]

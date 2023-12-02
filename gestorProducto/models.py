@@ -9,6 +9,7 @@ class Categoria(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion= models.CharField(max_length=50)
+    contacto=models.CharField(max_length=30)
     categoria=models.ForeignKey(Categoria,on_delete=models.CASCADE)
     usuario=models.ForeignKey(User,on_delete=models.CASCADE) 
     def __str__(self):
