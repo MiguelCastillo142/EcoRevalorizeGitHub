@@ -6,6 +6,15 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
+def buscar_productos(request):
+    query = request.GET.get('q')
+    productos = Producto.objects.all()
+    if query:
+        productos = productos.filter(nombre__icontains=query) | productos.filter(usuario__username__icontains=query)
+
+    return render(request, 'searchproductos.html', {'productos': productos, 'query': query})
+
+
 def productoData(request):
     producto=Producto.objects.all()
     data={'producto':producto}

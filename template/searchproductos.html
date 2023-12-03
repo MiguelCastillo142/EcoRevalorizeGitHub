@@ -27,9 +27,9 @@
             </div>
         </form>
         
-        {% if producto %}
+        {% if productos %}
             <div class="row">
-                {% for producto in producto %}
+                {% for producto in productos %}
                 <div class="col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
@@ -42,8 +42,10 @@
                 </div>
                 {% endfor %}
             </div>
- 
+        {% else %}
+                <p class="mensaje">No hay productos disponibles para "{{ query }}"</p>
         {% endif %}
+        
     </div>
 
     <!-- Agrega la referencia a los scripts de Bootstrap -->
