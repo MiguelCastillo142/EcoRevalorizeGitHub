@@ -31,8 +31,5 @@ urlpatterns = [
     path('',TemplateView.as_view(template_name="index.html"),name='index'),
     path('lista/',listaproducto,name="productos"),
     
-
-    
-
     path('editarnombre/', editar_nombre, name='editar_nombre'),
 ]
