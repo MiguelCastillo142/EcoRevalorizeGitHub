@@ -27,16 +27,11 @@
     </li>
 {% endif %}
 {% endblock %}
-<<<<<<< HEAD
+{% block lista %}
+    <a class="sign singin-btn btn-primary btn" href="/lista">Productos</a>
+{% endblock %}
 {% block contenido %}
 <link href="{% static 'css/index.css'%}" rel="stylesheet">
-=======
-{% block lista %}
-    <a class="nav-link sign singin-btn btn-primary btn" href="/lista">Productos</a>
-{% endblock %}
-
-<body >
->>>>>>> 60085423286c290b91c730d979c981330d0a4a6b
 
 {# Indice y titulo #}
 
@@ -44,7 +39,11 @@
     <img src="{% static 'img/img2.jpg' %}" alt="leon" class="background-image" style="border-radius: 10px; ">
     <div class="content-container">
         <h2 class="des text-center py-5" style="margin-top:0px;">Prefiere productos que se reciclen</h2>
-        <p class="text-center" style="margin-top:20px; margin-left:20px; margin-right:20px; color: orange;font-size: 35px;">En nuestra empresa EcoRevalorize, Nos interesa poder aportar al medioambiente un respiro de los recursos que se usan en la sociedad actual, y que se desechan sin dar otro uso, por ello nos encargamos de poder aportar y organizarse a obtener productos que se pueden reciclar en empresas </p>
+        <p class="text-center" style="margin-top:20px; margin-left:20px; margin-right:20px; font-size: 35px;">
+            <span style="background-color: orange; padding: 5px; display: inline; color: rgb(15, 64, 224);">
+                En nuestra empresa EcoRevalorize, Nos interesa poder aportar al medioambiente un respiro de los recursos que se usan en la sociedad actual, y que se desechan sin dar otro uso, por ello nos encargamos de poder aportar y organizarse a obtener productos que se pueden reciclar en empresas
+            </span>
+        </p>
     </div>
 </div>
 
@@ -74,25 +73,25 @@
 </div>
 
 {# Sobre el reciclaje #}
-<div class="container" style="padding-top:140px; sobre-section">
+<div class="container" style="padding-top:140px;">
     <div class="row">
         <div class="col-md-6">
-            <h5 class="text-center">Sobre el reciclaje en Chile</h5>
+            <h4 class="text-center">Sobre el reciclaje en Chile</h4>
             <p class="text-left" style="padding-top:20px;">Cifras del Ministerio del Medio Ambiente señalan que en Chile se generan casi 17 millones de toneladas de residuos sólidos al año. Es decir, cada chileno genera un aproximado de un kilo de basura al día. De ese total, 6,5 millones son residuos domiciliarios y, desgraciadamente sólo el 10% se recicla.</p>
             <p class="text-left">Según el Informe del Estado del Medio Ambiente 2020, en Chile el 2018 se generó un total de 19,6 millones de toneladas de residuos sólidos anuales, de los cuales, el 55% es de origen industrial y el 42% domiciliarios (municipales). El destino de estos residuos se distribuye de dos formas: 22% se valoriza o recicla y el 78% se va a eliminación, de este modo los basurales, rellenos sanitarios, microbasurales u otros espacios destinados a la disposición final, no hacen más que crecer.</p>
             <p class="text-left">En medio de la gran cantidad de basura que abunda en la vida cotidiana y su bajo nivel de reciclaje o reutilización, hay una serie de problemas, condiciones y factores que demuestran una exigua preocupación social acerca de un tema tan relevante que impacta directamente en el medio ambiente, como es el manejo de residuos.</p>
         </div>
         <div class="col-md-6">
-            <img src="{% static 'img/sobre.webp' %}" alt="sobre" class="img-fluid" width="550px" style="position: absolute; left:660px; height: 87%;" >
+            <img src="{% static 'img/sobre.jpg' %}" alt="sobre" class="img-fluid" width="40%" style="margin-left: 5%; position: absolute; left:660px; height: 80%;" >
         </div>
     </div>
 </div>
 
 {# Iniciativa del ecorevalize #}
-<div style="margin-top:80px; margin-bottom: 0px; padding-bottom: 450px; background-color: #1de671 ; iniciativa-section">
+<div style="margin-top:80px; margin-bottom: 0px; padding-bottom: 450px; background-color: #1de671 ; ">
     <h5 class="text-center">Iniciativa de EcoRevalorize</h5>
-    <li class="text-justify" style="padding-top:20px; margin-right:120px; margin-left:120px;">En EcoRevalorize tenemos como objetivo disminuir al mínimo la basura que se genera, a través de la reutilización. Esto contribuiría en grandes rasgos al uso de productos que se usan solo una vez. Nos evolucionamos donde la sociedad avanza con la tecnología y por ello nos acercamos más a través de la plataforma web que estás usando ahora mismo.</li>
-    <li class="text-justify"  style="margin-right:120px; margin-left:120px;"">Buscamos fomentar la consciencia respecto a lo que le sucede al planeta, que sea consciente del impacto en el medio ambiente de nuestras acciones.</li>
+    <li class="text-justify" style="padding-top: 20px ; margin-right:120px; margin-left:120px;">En EcoRevalorize tenemos como objetivo disminuir al mínimo la basura que se genera, a través de la reutilización. Esto contribuiría en grandes rasgos al uso de productos que se usan solo una vez. Nos evolucionamos donde la sociedad avanza con la tecnología y por ello nos acercamos más a través de la plataforma web que estás usando ahora mismo.</li>
+    <li class="text-justify"  style="margin-right:120px; margin-left:120px;">Buscamos fomentar la consciencia respecto a lo que le sucede al planeta, que sea consciente del impacto en el medio ambiente de nuestras acciones.</li>
     <img src="{% static 'img/Iniciativa.jpg' %}" alt="sobre" class="img-fluid" width="550px" style="position: absolute; left:350px; top: 2250px;">
 
 

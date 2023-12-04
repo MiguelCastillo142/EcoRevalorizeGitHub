@@ -1,10 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from gestorProducto.models import *
 from gestorProducto.forms import CategoriaRegistrationForm , ProductoRegistrationForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from .forms import imgForm
+
+def buscar_productos(request):
+    query = request.GET.get('q')
+    productos = Producto.objects.all()
+    if query:
+        productos = productos.filter(nombre__icontains=query) | productos.filter(usuario__username__icontains=query)
+
+    return render(request, 'searchproductos.html', {'productos': productos, 'query': query})
+
 
 def productoData(request):
     producto=Producto.objects.all()
@@ -14,7 +24,7 @@ def productoData(request):
 def registrarProducto(request):
     form=ProductoRegistrationForm()
     if request.method=='POST':
-        form=ProductoRegistrationForm(request.POST)
+        form=ProductoRegistrationForm(request.POST,files=request.FILES)
         if form.is_valid():
             producto=form.save(commit=False)
             producto.usuario=request.user
@@ -81,7 +91,7 @@ def eliminarCategoria(request,id):
 @login_required(login_url='login')  
 def editarProducto(request,id ):
     producto=Producto.objects.get(id = id )
-    form=ProductoRegistrationForm(instance=producto)
+    form=ProductoRegistrationForm(instance=producto, files=request.FILES)
     if (request.method=='POST'):
         form=ProductoRegistrationForm(request.POST,instance=producto)
         if form.is_valid():
@@ -102,3 +112,18 @@ def eliminarProducto(request,id):
     producto.delete()
     return  HttpResponseRedirect(reverse("ver_producto"))
 
+
+def cargar_imagen(request):
+    if request.method == 'POST':
+        form = imgForm(request.POST, request.FILES)
+        if form.is_valid():
+            try:
+                form.save()
+                form = imgForm()
+            except Exception as e:
+                print(f"Error al guardar la imagen: {e}")
+        else:
+            print(f"Formulario no válido: {form.errors}")
+    else:
+        form = imgForm()
+    return render(request, 'vistaproductos.html', {'form': form})

@@ -6,6 +6,8 @@ from gestorUser.views  import *
 from gestorProducto.views import *
 from django.views.generic.base import TemplateView
 from django.urls import path, include
+from gestorProducto.views import cargar_imagen
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,14 +27,17 @@ urlpatterns = [
     path('editarcategoria/<int:id>', editarCategoria, name="editarcategoria"),
     path('eliminarcategoria/<int:id>', eliminarCategoria, name="eliminarcategoria"),
 
-    path('editarproducto/<int:id>', editarProducto, name="editarproducto"),
+    path('editarproducto/<int:id>',editarProducto, name="editarproducto"),
     path('eliminarproducto/<int:id>', eliminarProducto, name="eliminarproducto"),
     
     path('',TemplateView.as_view(template_name="index.html"),name='index'),
     path('lista/',listaproducto,name="productos"),
+    path('search/',buscar_productos,name="search"),
     
-
-    
-
     path('editarnombre/', editar_nombre, name='editar_nombre'),
+
+    path('cargarimg/', cargar_imagen, name='cargar_imagen'),
+ 
 ]
+
+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

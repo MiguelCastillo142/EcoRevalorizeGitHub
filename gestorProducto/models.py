@@ -13,6 +13,11 @@ class Producto(models.Model):
     ubicacion=models.CharField(max_length=60)
     categoria=models.ForeignKey(Categoria,on_delete=models.CASCADE)
     usuario=models.ForeignKey(User,on_delete=models.CASCADE) 
+    imagen = models.ImageField(upload_to = 'images/', null=True, blank=True)
     def __str__(self):
         return self.nombre
     
+
+class img(models.Model):
+     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
+     imagen = models.ImageField(upload_to = 'images/')

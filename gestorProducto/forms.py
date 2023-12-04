@@ -1,6 +1,8 @@
 from django import forms
 from gestorProducto.models import *
 from gestorProducto import models
+from .models import img
+
 class ProductoRegistrationForm(forms.Form):
     nombre = forms.CharField()
     descripcion = forms.CharField()
@@ -45,3 +47,8 @@ class CategoriaRegistrationForm(forms.ModelForm):
     class Meta:
         model=Categoria
         fields='__all__'
+
+class imgForm(forms.ModelForm):
+    class Meta:
+        model = img
+        fields = ['imagen']

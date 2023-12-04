@@ -27,29 +27,25 @@
             </div>
         </form>
         
-        {% if producto %}
+        {% if productos %}
             <div class="row">
-                {% for producto in producto %}
+                {% for producto in productos %}
                 <div class="col-md-12 mb-4">
                     <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ producto.nombre }}</h4>
-                            <li class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  
-                            <li class="card-text"><strong>Contacto:  </strong> {{ producto.contacto }}</li>
-                            <li class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  
-                            <li class="card-text"><strong>Empresa:  </strong> {{ producto.usuario.username }}</li>
-                            <li class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</li>
-                            
-                            {% for imagen in producto.img_set.all %}
-                            <img src="{{ imagen.imagen.url }}" alt="Imagen del producto">
-                            {% endfor %}
-                        </div>
-                    </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ producto.nombre }}</h4>
+                                <p class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  <strong>Contacto:  </strong> {{ producto.contacto }}</p>
+                                <p class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  <strong>Empresa:  </strong> {{ producto.usuario.username }}</p>
+                                <p class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</p>
+                            </div>
+                     </div>
                 </div>
                 {% endfor %}
             </div>
- 
+        {% else %}
+                <p class="mensaje">No hay productos disponibles para "{{ query }}"</p>
         {% endif %}
+        
     </div>
 
     <!-- Agrega la referencia a los scripts de Bootstrap -->
