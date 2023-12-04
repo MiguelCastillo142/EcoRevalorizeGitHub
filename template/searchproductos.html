@@ -37,6 +37,10 @@
                                 <p class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  <strong>Contacto:  </strong> {{ producto.contacto }}</p>
                                 <p class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  <strong>Empresa:  </strong> {{ producto.usuario.username }}</p>
                                 <p class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</p>
+                                                            
+                            {% for imagen in producto.img_set.all %}
+                            <img src="{{ imagen.imagen.url }}" alt="Imagen del producto">
+                            {% endfor %}
                             </div>
                      </div>
                 </div>
