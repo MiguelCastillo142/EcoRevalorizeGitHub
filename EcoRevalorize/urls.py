@@ -7,6 +7,7 @@ from gestorProducto.views import *
 from django.views.generic.base import TemplateView
 from django.urls import path, include
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cuentas/',include("django.contrib.auth.urls"),name='login'),
@@ -25,7 +26,7 @@ urlpatterns = [
     path('editarcategoria/<int:id>', editarCategoria, name="editarcategoria"),
     path('eliminarcategoria/<int:id>', eliminarCategoria, name="eliminarcategoria"),
 
-    path('editarproducto/<int:id>', editarProducto, name="editarproducto"),
+    path('editarproducto/<int:id>',editarProducto, name="editarproducto"),
     path('eliminarproducto/<int:id>', eliminarProducto, name="eliminarproducto"),
     
     path('',TemplateView.as_view(template_name="index.html"),name='index'),
@@ -33,4 +34,8 @@ urlpatterns = [
     path('search/',buscar_productos,name="search"),
     
     path('editarnombre/', editar_nombre, name='editar_nombre'),
+
+ 
 ]
+
+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

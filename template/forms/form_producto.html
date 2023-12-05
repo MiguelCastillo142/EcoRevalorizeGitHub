@@ -10,11 +10,11 @@
 <body>
     <div class="container"style="margin-bottom: 100px;" >
         <h2>Agregar Producto</h2>
-        <form method="POST">
+        <form method="POST" action="{% if producto.id %}{% url 'editarproducto' producto.id %}{% endif %}" enctype="multipart/form-data">
             {%csrf_token%}
             {{form.as_p}}
             <div>
-                <input type="submit" value="Registrar producto" class="btn btn-primary">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary">
                 <a class="btn btn-secondary ms-2" href="{% url 'ver_producto'%}">Ver productos</a>
             </div>
         </form>

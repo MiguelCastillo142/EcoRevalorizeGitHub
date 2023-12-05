@@ -1,10 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from gestorProducto.models import *
 from gestorProducto.forms import CategoriaRegistrationForm , ProductoRegistrationForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+
 
 def buscar_productos(request):
     query = request.GET.get('q')
@@ -21,17 +22,17 @@ def productoData(request):
     return render(request,'tablas/tabla_producto.html',data)
 
 def registrarProducto(request):
-    form=ProductoRegistrationForm()
-    if request.method=='POST':
-        form=ProductoRegistrationForm(request.POST)
+    form = ProductoRegistrationForm()
+    if request.method == 'POST':
+        form = ProductoRegistrationForm(request.POST, files=request.FILES)
         if form.is_valid():
-            producto=form.save(commit=False)
-            producto.usuario=request.user
-            print("El formulario es valido")
+            producto = form.save(commit=False)
+            producto.usuario = request.user
             producto.save()
             return HttpResponseRedirect(reverse("ver_producto"))
-    data = {'form':form}
-    return render(request,'forms/form_producto.html',data)
+    
+    data = {'form': form}
+    return render(request, 'forms/form_producto.html', data)
 
 @login_required(login_url='login')  
 def registrarCategoria(request):
@@ -90,7 +91,7 @@ def eliminarCategoria(request,id):
 @login_required(login_url='login')  
 def editarProducto(request,id ):
     producto=Producto.objects.get(id = id )
-    form=ProductoRegistrationForm(instance=producto)
+    form=ProductoRegistrationForm(instance=producto, files=request.FILES)
     if (request.method=='POST'):
         form=ProductoRegistrationForm(request.POST,instance=producto)
         if form.is_valid():
@@ -110,4 +111,6 @@ def eliminarProducto(request,id):
     producto=Producto.objects.get(id = id )
     producto.delete()
     return  HttpResponseRedirect(reverse("ver_producto"))
+
+
 
