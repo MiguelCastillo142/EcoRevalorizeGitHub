@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>SB Admin</title>
+    <title>{% block titulo %}Board{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'vendor/fontawesome-free/css/all.min.css' %}">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -35,7 +35,7 @@
                 Interfaz
             </div>
             
-            <!-- Primer conjunto de elementos -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne"
                     aria-expanded="true" aria-controls="collapseOne">
@@ -53,7 +53,7 @@
                 </div>
             </li>
 
-            <!-- Segundo conjunto de elementos -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
@@ -135,7 +135,6 @@
             </div>
         </div>
     </div>
-    
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
     <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>

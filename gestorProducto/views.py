@@ -21,18 +21,19 @@ def productoData(request):
     data={'producto':producto}
     return render(request,'tablas/tabla_producto.html',data)
 
+@login_required(login_url='login')  
 def registrarProducto(request):
-    form = ProductoRegistrationForm()
-    if request.method == 'POST':
-        form = ProductoRegistrationForm(request.POST, files=request.FILES)
+    form=ProductoRegistrationForm()
+    if request.method=='POST':
+        form=ProductoRegistrationForm(request.POST,files=request.FILES)
         if form.is_valid():
-            producto = form.save(commit=False)
-            producto.usuario = request.user
+            producto=form.save(commit=False)
+            producto.usuario=request.user
+            print("El formulario es valido")
             producto.save()
             return HttpResponseRedirect(reverse("ver_producto"))
-    
-    data = {'form': form}
-    return render(request, 'forms/form_producto.html', data)
+    data = {'form':form}
+    return render(request,'forms/form_producto.html',data)
 
 @login_required(login_url='login')  
 def registrarCategoria(request):
@@ -99,9 +100,6 @@ def editarProducto(request,id ):
         return  HttpResponseRedirect(reverse("ver_producto"))
     data = {'form' : form } 
     return render (request, 'forms/form_producto.html',data)
-
-
-
 
 
 

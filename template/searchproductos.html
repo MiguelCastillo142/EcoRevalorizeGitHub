@@ -1,16 +1,13 @@
 {% extends "index.html" %}
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 {% block btn %}
 {% endblock %}
 {% block contenido %}
-
 <head>
-    <title>Productos</title>
+    <title>{% block titulo %}Productos{% endblock %}</title>
     <link href="{% static 'estilos.css' %}" rel="stylesheet">
-    <!-- Agrega la referencia a Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yw6s5/2rC8lpffl3s72K4i5qH5jNGHyI/F0aUpnHtc5UqqbLOBrIIKTJm21dej"
         crossorigin="anonymous">
 </head>
@@ -19,14 +16,12 @@
 <body>
     <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
         <h2 style="margin-bottom: 5%; margin-top: 5%;" class="text-center titulo">Productos</h2>
-        
-        <form class="mb-4" method="GET" action="{% url 'search' %}">
+        <form class="mb-4" method="GET" action="{% url 'search' %}" enctype="multipart/form-data">
             <div class="input-group">
                 <input type="text" class="form-control" name="q" placeholder="Buscar productos por nombre o usuario" aria-label="Buscar productos" aria-describedby="button-addon2" value="{{ query }}">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
             </div>
         </form>
-        
         {% if productos %}
             <div class="row">
                 {% for producto in productos %}
@@ -34,14 +29,14 @@
                     <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">{{ producto.nombre }}</h4>
-                                <p class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  <strong>Contacto:  </strong> {{ producto.contacto }}</p>
-                                <p class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  <strong>Empresa:  </strong> {{ producto.usuario.username }}</p>
-                                <p class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</p>
-                                                            
+                                <li class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  
+                                <li class="card-text"><strong>Contacto:  </strong> {{ producto.contacto }}</li>
+                                <li class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  
+                                <li class="card-text"><strong>Empresa:  </strong> {{ producto.usuario.username }}</li>
+                                <li class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</li>
                                 {% if producto.imagen %}
-                                    <img src="{{ producto.imagen.url }}" alt="Imagen del producto">
+                                <img src="{{ producto.imagen.url }}" alt="Imagen del producto" width="20%" style="margin-left: 60%; margin-top: -20%; position:relative;">
                                 {% endif %}
-            
                             </div>
                      </div>
                 </div>
@@ -49,11 +44,8 @@
             </div>
         {% else %}
                 <p class="mensaje">No hay productos disponibles para "{{ query }}"</p>
-        {% endif %}
-        
+        {% endif %} 
     </div>
-
-    <!-- Agrega la referencia a los scripts de Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-eAEI3dNXViKMuLJHkfCHzyxRSn0M7/a6szg3mIEK8eLevvJz0K2aWVjFL5kzak73" crossorigin="anonymous"></script>
 </body>
 {% endblock %}
