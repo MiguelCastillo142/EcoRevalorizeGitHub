@@ -6,7 +6,6 @@ from gestorUser.views  import *
 from gestorProducto.views import *
 from django.views.generic.base import TemplateView
 from django.urls import path, include
-from gestorProducto.views import cargar_imagen
 
 
 urlpatterns = [
@@ -36,8 +35,9 @@ urlpatterns = [
     
     path('editarnombre/', editar_nombre, name='editar_nombre'),
 
-    path('cargarimg/', cargar_imagen, name='cargar_imagen'),
  
 ]
 
-static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -20,7 +20,7 @@
     <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
         <h2 style="margin-bottom: 5%; margin-top: 5%;" class="text-center titulo">Productos</h2>
         
-        <form class="mb-4" method="GET" action="{% url 'search' %}">
+        <form class="mb-4" method="GET" action="{% url 'search' %}" enctype="multipart/form-data">
             <div class="input-group">
                 <input type="text" class="form-control" name="q" placeholder="Buscar productos por nombre o usuario" aria-label="Buscar productos" aria-describedby="button-addon2" value="{{ query }}">
                 <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>

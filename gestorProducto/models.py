@@ -18,6 +18,3 @@ class Producto(models.Model):
         return self.nombre
     
 
-class img(models.Model):
-     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-     imagen = models.ImageField(upload_to = 'images/')

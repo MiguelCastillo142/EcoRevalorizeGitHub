@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .forms import imgForm
+
 
 def buscar_productos(request):
     query = request.GET.get('q')
@@ -102,9 +102,6 @@ def editarProducto(request,id ):
 
 
 
-
-
-
 @login_required(login_url='login')  
 def eliminarProducto(request,id):
     user = request.user
@@ -113,17 +110,4 @@ def eliminarProducto(request,id):
     return  HttpResponseRedirect(reverse("ver_producto"))
 
 
-def cargar_imagen(request):
-    if request.method == 'POST':
-        form = imgForm(request.POST, request.FILES)
-        if form.is_valid():
-            try:
-                form.save()
-                form = imgForm()
-            except Exception as e:
-                print(f"Error al guardar la imagen: {e}")
-        else:
-            print(f"Formulario no válido: {form.errors}")
-    else:
-        form = imgForm()
-    return render(request, 'vistaproductos.html', {'form': form})
+
