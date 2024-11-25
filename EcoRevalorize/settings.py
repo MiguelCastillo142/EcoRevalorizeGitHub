@@ -78,14 +78,15 @@ pymysql.install_as_MySQLdb()
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ecorevalorize',
-        'USER': 'root',
-        'PASSWORD' : '',
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "ecorevalorize",
+        "USER": "admin",
+        "PASSWORD": "leica666",
+        "HOST": "base-ecorevalorize.cj8kga2ggt62.us-east-1.rds.amazonaws.com",
+        "PORT": "3306",
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
