@@ -6,14 +6,14 @@ from gestorUser.views  import *
 from gestorProducto.views import *
 from django.views.generic.base import TemplateView
 from django.urls import path, include
-
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cuentas/',include("django.contrib.auth.urls"),name='login'),
     path('signUp/',signUp,name="signUp"),
     path('interfaz/',postlogin,name="board"),
-    
+     
     path('addproducto/',registrarProducto,name="insertar_producto"),
     path('productos/',productoData,name="ver_producto"),
 

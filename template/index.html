@@ -12,9 +12,13 @@
     
     {% endblock %}
 
+    </form>
     {% block sesion %}
     {% if user.is_authenticated %}
-        <a class="sign singin-btn btn-primary btn" href="{% url 'logout' %}" >Salir</a>
+    <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="sign singin-btn btn-primary btn">Salir</button>
+    </form>
     {% else %}
      <a href="{% url 'login' %}" class="sign singin-btn btn-primary btn">Iniciar Sesión</a>
     {% endif %}
