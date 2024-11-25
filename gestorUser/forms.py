@@ -13,7 +13,7 @@ class SignUpForm(UserCreationForm):
         fields=('username','rut','email','password1','password2')
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].label = 'Ingresa el nombre de tu empresa'
+        self.fields['username'].label = 'Ingresa el nombre actual'
         self.fields['username'].help_text = 'Requerido. 150 caracteres como máximo. Únicamente letras, dígitos y @/./+/-/_'
 
 
@@ -24,7 +24,7 @@ class EditarNombreForm(UserChangeForm):
         fields = ['username', 'first_name']
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['username'].label = 'Ingresa el nombre de tu empresa'
+        self.fields['username'].label = 'Ingresa el nombre actual'
         self.fields['username'].help_text = 'Requerido. 150 caracteres como máximo. Únicamente letras, dígitos y @/./+/-/_'
-        self.fields['first_name'].label = 'Ingresa un   nombre personal'
+        self.fields['first_name'].label = 'Ingresa un nuevo nombre personal'
         self.fields['first_name'].help_text = 'Requerido. 150 caracteres como máximo. Únicamente letras, dígitos y @/./+/-/_'
