@@ -6,18 +6,20 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.db import DatabaseError
+from django.core.exceptions import ValidationError
 
-from django.core.paginator import Paginator
+
 
 def buscar_productos(request):
     query = request.GET.get('q')
     productos = Producto.objects.all()
-    if query:
-        productos = productos.filter(nombre__icontains=query) | productos.filter(usuario__username__icontains=query)
-    paginator = Paginator(productos, 2)  # 10 productos por página
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'searchproductos.html', {'page_obj': page_obj, 'query': query})
+    try:
+        if query:
+            productos = productos.filter(nombre__icontains=query) | productos.filter(usuario__username__icontains=query)
+    except DatabaseError as e:
+        print(f"Error al acceder a la base de datos: {e}")
+        productos = []
+    return render(request, 'searchproductos.html', {'productos': productos, 'query': query})
 
 
 def productoData(request):
@@ -27,17 +29,25 @@ def productoData(request):
 
 @login_required(login_url='login')  
 def registrarProducto(request):
-    form=ProductoRegistrationForm()
-    if request.method=='POST':
-        form=ProductoRegistrationForm(request.POST,files=request.FILES)
+    form = ProductoRegistrationForm()
+    
+    if request.method == 'POST':
+        form = ProductoRegistrationForm(request.POST, files=request.FILES)
+        
         if form.is_valid():
-            producto=form.save(commit=False)
-            producto.usuario=request.user
-            print("El formulario es valido")
-            producto.save()
-            return HttpResponseRedirect(reverse("ver_producto"))
-    data = {'form':form}
-    return render(request,'forms/form_producto.html',data)
+            try:
+                producto = form.save(commit=False)
+                producto.usuario = request.user
+                print("El formulario es valido")
+                producto.save()
+                return HttpResponseRedirect(reverse("ver_producto"))
+            except ValidationError as e:
+                form.add_error(None, f"Error al guardar el producto: {e}")
+            except Exception as e:
+                form.add_error(None, f"Ha ocurrido un error: {e}")
+                
+    data = {'form': form}
+    return render(request, 'forms/form_producto.html', data)
 
 @login_required(login_url='login')  
 def registrarCategoria(request):
@@ -59,7 +69,7 @@ def registrarCategoria(request):
 @login_required(login_url='login')
 def categoriaData(request):
     categoria = Categoria.objects.all()
-    if request.user.is_staff:  # Corrige el acceso al usuario actual
+    if request.user.is_staff:
         data = {'categoria': categoria}
         return render(request, 'tablas/tabla_categoria.html', data)
     else:
