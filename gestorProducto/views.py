@@ -5,15 +5,19 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db import DatabaseError
 
+from django.core.paginator import Paginator
 
 def buscar_productos(request):
     query = request.GET.get('q')
     productos = Producto.objects.all()
     if query:
         productos = productos.filter(nombre__icontains=query) | productos.filter(usuario__username__icontains=query)
-
-    return render(request, 'searchproductos.html', {'productos': productos, 'query': query})
+    paginator = Paginator(productos, 2)  # 10 productos por página
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'searchproductos.html', {'page_obj': page_obj, 'query': query})
 
 
 def productoData(request):

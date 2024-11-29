@@ -33,7 +33,7 @@
                                     <li class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  
                                     <li class="card-text"><strong>Contacto:  </strong> {{ producto.contacto }}</li>
                                     <li class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  
-                                    <li class="card-text"><strong>Empresa:  </strong> {{ producto.usuario.username }}</li>
+                                    <li class="card-text"><strong>Usuario:  </strong> {{ producto.usuario.username }}</li>
                                     <li class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</li>
                                     {% if producto.imagen %}
                                     <img src="{{ producto.imagen.url }}" alt="Imagen del producto" width="20%" style="margin-left: 60%; margin-top: -20%; position:relative;">
