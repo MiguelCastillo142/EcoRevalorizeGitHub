@@ -15,7 +15,7 @@ def buscar_productos(request):
     productos = Producto.objects.all()
     try:
         if query:
-            productos = productos.filter(nombre__icontains=query) | productos.filter(usuario__username__icontains=query)
+            productos = productos.filter(nombre__icontains=query) | productos.filter(ubicacion__icontains=query) | productos.filter(usuario__username__icontains=query)
     except DatabaseError as e:
         print(f"Error al acceder a la base de datos: {e}")
         productos = []
