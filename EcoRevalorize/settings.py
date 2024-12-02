@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'gestorUser',
-    'gestorProducto',
+    'gestorProducto'
 ]
 
 MIDDLEWARE = [
@@ -87,6 +87,9 @@ DATABASES = {
         "PORT": "3306",
     }
 }
+
+# Chat
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

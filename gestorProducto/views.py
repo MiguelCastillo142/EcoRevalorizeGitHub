@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 
+
+
+
 def buscar_productos(request):
     query = request.GET.get('q')
     productos = Producto.objects.all()
@@ -109,6 +112,7 @@ def eliminarProducto(request,id):
     producto=Producto.objects.get(id = id )
     producto.delete()
     return  HttpResponseRedirect(reverse("ver_producto"))
+
 
 
 

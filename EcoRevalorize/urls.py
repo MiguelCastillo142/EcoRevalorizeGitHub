@@ -8,6 +8,7 @@ from django.views.generic.base import TemplateView
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cuentas/',include("django.contrib.auth.urls"),name='login'),
@@ -34,6 +35,7 @@ urlpatterns = [
     path('search/',buscar_productos,name="search"),
     
     path('editarnombre/', editar_nombre, name='editar_nombre'),
+
 
  
 ]

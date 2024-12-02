@@ -34,6 +34,9 @@
                             <li class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  
                             <li class="card-text"><strong>Usuario:  </strong> {{ producto.usuario.username }}</li>
                             <li class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</li>
+                            <div class="product">
+                                <button class="chat-icon" onclick="toggleChat()">💬</button>
+                            </div>                         
                             {% if producto.imagen %}
                             <img src="{{ producto.imagen.url }}" alt="Imagen del producto" width="20%" style="margin-left: 60%; margin-top: -20%; position:relative;">
                             {% endif %}
