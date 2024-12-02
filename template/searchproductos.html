@@ -19,7 +19,7 @@
             <h2 style="margin-bottom: 5%; margin-top: 5%;" class="text-center titulo">Productos</h2>
             <form class="mb-4" method="GET" action="{% url 'search' %}" enctype="multipart/form-data">
                 <div class="input-group">
-                    <input type="text" class="form-control" name="q" placeholder="Buscar productos por nombre o usuario" aria-label="Buscar productos" aria-describedby="button-addon2" value="{{ query }}">
+                    <input type="text" class="form-control" name="q" placeholder="Buscar productos por nombre o ubicación" aria-label="Buscar productos" aria-describedby="button-addon2" value="{{ query }}">
                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Buscar</button>
                 </div>
             </form>
@@ -30,11 +30,11 @@
                         <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">{{ producto.nombre }}</h4>
-                                    <li class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  
-                                    <li class="card-text"><strong>Contacto:  </strong> {{ producto.contacto }}</li>
-                                    <li class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  
-                                    <li class="card-text"><strong>Empresa:  </strong> {{ producto.usuario.username }}</li>
-                                    <li class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</li>
+                                    <li class="card-text"><strong>Descripción: </strong> {{ producto.descripcion }}  
+                                    <li class="card-text"><strong>Contacto: </strong> {{ producto.contacto }}</li>
+                                    <li class="card-text"><strong>Categoría: </strong> {{ producto.categoria }}  
+                                    <li class="card-text"><strong>Usuario: </strong> {{ producto.usuario.username }}</li>
+                                    <li class="card-text"><strong>Ubicacion: </strong> {{ producto.ubicacion }}</li>
                                     {% if producto.imagen %}
                                     <img src="{{ producto.imagen.url }}" alt="Imagen del producto" width="20%" style="margin-left: 60%; margin-top: -20%; position:relative;">
                                     {% endif %}

@@ -37,69 +37,104 @@
 {% block contenido %}
 <link href="{% static 'css/index.css'%}" rel="stylesheet">
 
-{# Indice y titulo #}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Reciclaje</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        header {
+            background-color: #2d6a4f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #40916c;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #2d6a4f;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .intro {
+            background-color: #a8dadc;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #2d6a4f;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .content {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+    </style>
 
-<div class="background-container titulo-section" style="overflow: visible;">
-    <img src="{% static 'img/img2.jpg' %}" alt="leon" class="background-image" style="border-radius: 10px; ">
-    <div class="content-container">
-        <h2 class="des text-center py-5" style="margin-top:0px;">Prefiere productos que se reciclen</h2>
-        <p class="text-center" style="margin-top:20px; margin-left:20px; margin-right:20px; font-size: 35px;">
-            <span style="background-color: orange; padding: 5px; display: inline; color: rgb(15, 64, 224);">
-                En nuestra empresa EcoRevalorize, Nos interesa poder aportar al medioambiente un respiro de los recursos que se usan en la sociedad actual, y que se desechan sin dar otro uso, por ello nos encargamos de poder aportar y organizarse a obtener productos que se pueden reciclar en empresas
-            </span>
+<body>
+    <header>
+        <h1>Ecorevalorize Cuidemos Nuestro Planeta</h1>
+        <p>Una pequeña acción puede marcar una gran diferencia</p>
+    </header>
+    <nav>
+        <a href="#sobre">Sobre el Reciclaje</a>
+        <a href="#tipos">Tipos de Reciclaje</a>
+        <a href="#beneficios">Beneficios</a>
+    </nav>
+    <section id="sobre">
+        <div class="intro">
+            <h2 class="section-title">¿Qué es el Reciclaje?</h2>
+            <p class="content">
+                El reciclaje es el proceso de recolectar y procesar materiales que de otro modo serían desechados como basura, con el fin de convertirlos en nuevos productos. Esto reduce el consumo de materias primas y ayuda a proteger el medio ambiente.
+            </p>
+        </div>
+    </section>
+    <section id="tipos">
+        <h2 class="section-title">Tipos de Reciclaje</h2>
+        <ul class="content">
+            <li>Reciclaje de papel y cartón</li>
+            <li>Reciclaje de vidrio</li>
+            <li>Reciclaje de plástico</li>
+            <li>Reciclaje de metales</li>
+            <li>Reciclaje orgánico (compostaje)</li>
+        </ul>
+    </section>
+
+    <section id="beneficios">
+        <h2 class="section-title">Beneficios del Reciclaje</h2>
+        <p class="content">
+            El reciclaje tiene múltiples beneficios, tanto para el medio ambiente como para la economía. Algunos de los principales beneficios incluyen:
         </p>
-    </div>
-</div>
-
-{# Vision y mision #}
-<div class="mision-section" style="margin-top: 301px;">
-    <div class="row">
-        <div class="col-md-6">
-            <h4 style="margin-left: 100px;">Nuestra Misión</h4>
-            <p class="text-left" style="margin-left: 100px;">En EcoRevalorize, nos dedicamos a hayar un cambio positivo en el paradigma del consumo al proporcionar una plataforma innovadora que conecta a empresas comprometidas con la sostenibilidad que ofrecen productos reutilizables con consumidores conscientes.</p>
-        </div>
-        <div class="col-md-6">
-            <img src="{% static 'img/mision.jpg' %}" alt="mision" class="img-fluid" width="240px">
-        </div>
-    </div>
-</div>
-
-<div class="vision-section" style="background-color: #31a84f;">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{% static 'img/vision.jpg' %}" alt="vision" class="img-fluid" width="230px" style="margin-left: 900px; margin-top: 98px;">
-        </div>
-        <div class="col-md-6">
-            <h4 style="margin-top:10px;">Nuestra Visión</h4>
-            <p style="margin-bottom: 50px; margin-left: 0px;" >Nuestra visión se haya en un futuro donde las empresas y los consumidores colaboren de manera armoniosa para preservar nuestro planeta, reducir la generación de residuos y avanzar hacia un estilo de vida más consciente y sostenible.</p>
-        </div>
-    </div>
-</div>
-
-{# Sobre el reciclaje #}
-<div class="container" style="padding-top:140px;">
-    <div class="row">
-        <div class="col-md-6">
-            <h4 class="text-center">Sobre el reciclaje en Chile</h4>
-            <p class="text-left" style="padding-top:20px;">Cifras del Ministerio del Medio Ambiente señalan que en Chile se generan casi 17 millones de toneladas de residuos sólidos al año. Es decir, cada chileno genera un aproximado de un kilo de basura al día. De ese total, 6,5 millones son residuos domiciliarios y, desgraciadamente sólo el 10% se recicla.</p>
-            <p class="text-left">Según el Informe del Estado del Medio Ambiente 2020, en Chile el 2018 se generó un total de 19,6 millones de toneladas de residuos sólidos anuales, de los cuales, el 55% es de origen industrial y el 42% domiciliarios (municipales). El destino de estos residuos se distribuye de dos formas: 22% se valoriza o recicla y el 78% se va a eliminación, de este modo los basurales, rellenos sanitarios, microbasurales u otros espacios destinados a la disposición final, no hacen más que crecer.</p>
-            <p class="text-left">En medio de la gran cantidad de basura que abunda en la vida cotidiana y su bajo nivel de reciclaje o reutilización, hay una serie de problemas, condiciones y factores que demuestran una exigua preocupación social acerca de un tema tan relevante que impacta directamente en el medio ambiente, como es el manejo de residuos.</p>
-        </div>
-        <div class="col-md-6">
-            <img src="{% static 'img/sobre.jpg' %}" alt="sobre" class="img-fluid" width="40%" style="margin-left: 5%; position: absolute; left:660px; height: 80%;" >
-        </div>
-    </div>
-</div>
-
-{# Iniciativa del ecorevalize #}
-<div style="margin-top:80px; margin-bottom: 0px; padding-bottom: 450px; background-color: #1de671 ; ">
-    <h5 class="text-center">Iniciativa de EcoRevalorize</h5>
-    <li class="text-justify" style="padding-top: 20px ; margin-right:120px; margin-left:120px;">En EcoRevalorize tenemos como objetivo disminuir al mínimo la basura que se genera, a través de la reutilización. Esto contribuiría en grandes rasgos al uso de productos que se usan solo una vez. Nos evolucionamos donde la sociedad avanza con la tecnología y por ello nos acercamos más a través de la plataforma web que estás usando ahora mismo.</li>
-    <li class="text-justify"  style="margin-right:120px; margin-left:120px;">Buscamos fomentar la consciencia respecto a lo que le sucede al planeta, que sea consciente del impacto en el medio ambiente de nuestras acciones.</li>
-    <img src="{% static 'img/Iniciativa.jpg' %}" alt="sobre" class="img-fluid" width="550px" style="position: absolute; left:350px; top: 2250px;">
-
-
-</div>
+        <ul class="content">
+            <li>Conservación de recursos naturales.</li>
+            <li>Reducción de la contaminación del aire y el agua.</li>
+            <li>Reducción de la cantidad de residuos en vertederos.</li>
+            <li>Ahorro de energía.</li>
+            <li>Fomento de la economía circular.</li>
+        </ul>
+    </section>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.8/dist/umd/popper.min.js"></script>
