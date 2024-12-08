@@ -29,22 +29,11 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">{{ producto.nombre }}</h4>
-<<<<<<< HEAD
-                            <li class="card-text"><strong>Descripción:</strong> {{ producto.descripcion }}  
-                            <li class="card-text"><strong>Contacto:  </strong> {{ producto.contacto }}</li>
-                            <li class="card-text"><strong>Categoría:</strong> {{ producto.categoria }}  
-                            <li class="card-text"><strong>Usuario:  </strong> {{ producto.usuario.username }}</li>
-                            <li class="card-text"><strong>Ubicacion:  </strong> {{ producto.ubicacion }}</li>
-                            <div class="product">
-                                <button class="chat-icon" onclick="toggleChat()">💬</button>
-                            </div>                         
-=======
                             <li class="card-text"><strong>Descripción: </strong> {{ producto.descripcion }}  
                             <li class="card-text"><strong>Contacto: </strong> {{ producto.contacto }}</li>
                             <li class="card-text"><strong>Categoría: </strong> {{ producto.categoria }}  
                             <li class="card-text"><strong>Usuario: </strong> {{ producto.usuario.username }}</li>
                             <li class="card-text"><strong>Ubicacion: </strong> {{ producto.ubicacion }}</li>
->>>>>>> 7cbb60b16e33cc6d84efa0c39e9e55f542ca3057
                             {% if producto.imagen %}
                             <img src="{{ producto.imagen.url }}" alt="Imagen del producto" width="20%" style="margin-left: 60%; margin-top: -20%; position:relative;">
                             {% endif %}
